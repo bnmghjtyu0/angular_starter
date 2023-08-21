@@ -1,0 +1,43 @@
+@charset "utf-8";
+// material 預設
+@import './material/light';
+
+@font-face {
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url(../assets/fonts/noto-sans-tc/noto-sans-tc-regular.woff2) format('woff2'),
+    url(../assets/fonts/noto-sans-tc/noto-sans-tc-regular.woff) format('woff'),
+    url(../assets/fonts/noto-sans-tc/noto-sans-tc-regular.otf) format('opentype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Noto Sans TC';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url(../assets/fonts/noto-sans-tc/noto-sans-tc-bold.woff2) format('woff2'),
+    url(../assets/fonts/noto-sans-tc/noto-sans-tc-bold.woff) format('woff'),
+    url(../assets/fonts/noto-sans-tc/noto-sans-tc-bold.otf) format('opentype');
+  font-display: swap;
+}
+
+* {
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    Arial,
+    'Noto Sans TC',
+    PingFang SC,
+    'Segoe UI',
+    'Microsoft JhengHei',
+    'Noto Sans',
+    sans-serif;
+  letter-spacing: 0.02em;
+}
+
+body {
+  background-color: #fff;
+}

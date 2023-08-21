@@ -1,8 +1,16 @@
-/* To learn more about this file see: https://angular.io/config/tsconfig. */
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "baseUrl": "./",
+    "baseUrl": "src",
+    "paths": {
+      "@app/*": ["app/*"],
+      "@constants/*": ["app/constants/*"],
+      "@models/*": ["app/models/*"],
+      "@shared-components/*": ["app/ui/common/shared-components/*"],
+      "@assets/*": ["assets/*"],
+      "@env/*": ["environments/*"],
+      "@services/*": ["app/services/*"]
+    },
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -19,10 +27,7 @@
     "target": "ES2022",
     "module": "ES2022",
     "useDefineForClassFields": false,
-    "lib": [
-      "ES2022",
-      "dom"
-    ]
+    "lib": ["ES2022", "dom"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

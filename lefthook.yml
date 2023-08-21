@@ -9,7 +9,7 @@ pre-commit:
   commands:
     lint:
       run: >
-        npx prettier --write src && ng lint
+        npx prettier --write src && ng lint && git add .
 
 commit-msg:
   commands:

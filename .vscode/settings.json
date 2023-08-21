@@ -29,6 +29,13 @@
   "files.insertFinalNewline": true,
   // cSpell 白名單
   "cSpell.words": [
+    "Apexcharts",
+    "datecustom",
+    "datepicker",
+    "dfns",
+    "ngxs",
+    "cust",
+    "busiType",
   ],
   "git.ignoreLimitWarning": true,
 }

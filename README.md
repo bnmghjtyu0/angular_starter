@@ -2,7 +2,7 @@
 
 ## 開發環境需求
 
-- [Nodejs >=14.x LTS](https://nodejs.org/zh-tw/)
+- [Nodejs >=16](https://nodejs.org/zh-tw/)
 - [VSCode](https://code.visualstudio.com/)
   - P.S. 安裝專案下 .vscode/settings.json 所列的 extension
 - [Angular CLI 12.x](https://angular.io/cli)
@@ -221,10 +221,10 @@ https://tpower.atlassian.net/browse/CHUBB2-001
 ```typescript
 /**
  * 數字相加
+ *
  * @param a - 描述參數 a
  * @param b - 描述參數 b
  * @returns 數字總和
- *
  */
 
 function add(a: number, b: number): number {
@@ -237,10 +237,10 @@ function add(a: number, b: number): number {
 ```typescript
 /**
  * 數字相加
+ *
  * @param a - 描述參數 a
  * @param b - 描述參數 b
  * @returns 無回傳值
- *
  */
 
 function add(a: number, b: number): void {
@@ -254,6 +254,7 @@ function add(a: number, b: number): void {
 class DatepickerYmdSelectComponent implements OnInit, ControlValueAccessor {
   /**
    * {@inheritDoc ControlValueAccessor.writeValue}
+   *
    * @param value - 描述
    * @returns 無回傳值
    */
@@ -267,6 +268,7 @@ class DatepickerYmdSelectComponent implements OnInit, ControlValueAccessor {
 export class Book {
   /**
    * 標題
+   *
    * @readonly
    */
   public get title(): string {
@@ -283,15 +285,12 @@ export class Book {
 
 ```typescript
 export class Book {
-  /**
-   * Angular 元件 - 父元件更新子元件中的資料
-   * 書本標題
-   */
+  /** Angular 元件 - 父元件更新子元件中的資料 書本標題 */
   @Input() title: string | null = '';
 
   /**
-   * Angular 元件 - 子元件相父元件傳遞資料
-   * 取得手機號碼
+   * Angular 元件 - 子元件相父元件傳遞資料 取得手機號碼
+   *
    * @param $event - 電話號碼
    */
   @Output() getPhone = new EventEmitter<number>();
