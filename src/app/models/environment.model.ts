@@ -1,7 +1,5 @@
 /** 程式環境 */
 export interface Environment {
-  /** 版本號 */
-  version?: string;
   /** 環境名稱 */
   environment: string;
   /** 是否為 production 模式 */

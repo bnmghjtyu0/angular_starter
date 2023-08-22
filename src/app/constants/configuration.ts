@@ -14,8 +14,8 @@ export const location: Configuration = {
   basePath: '',
   apiPath:
     environment.environment === 'json-server'
-      ? environment.mock_server // mock server
-      : environment.dev_server, // dev server
+      ? environment.mock_server ?? '' // mock server
+      : environment.dev_server ?? '', // dev server
 };
 
 /** 正式環境，使用 zuul */
