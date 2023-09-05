@@ -17,87 +17,82 @@
 │   ├── extensions.json           # 專案所需的 extensions
 │   └── settings.json             # 專案所需的設定
 ├── dist                          # 專案編譯後的路徑
-├── docker                        # docker 所需相關資料
-├── mock                          # mock 資料與 server
+├── mock                          # 假資料
 ├── node_modules                  # 存放安裝的套件
-├── projects                      # 存放其他 angular 專案
-│   └── common-lib                # 前後台共用函式庫
-├── scripts                       # 存放腳本
 ├── src                           # 原始碼
 │   ├── app                       # 主程式資料夾
-│   │   ├── core                  # 存放核心模組 (singleton)
-│   │   ├── features              # 存放功能模組
+│   │   ├── ui                    # 網站頁面
+│   │   │   ├── common            # 功能頁面共用
+│   │   │   │   └── layout        # layout 區分登入與未登入
 │   │   │   └── pages             # 主要開發的功能頁面
-│   │   ├── layout                # layout 區分登入與未登入
-│   │   ├── shared                # 共用模組 (非 singleton)
-│   │   ├── shared-material       # 共用 material 模組
-│   │   ├── app-routing.module    # 主要路由設定
+│   │   ├── shared                # 共用模組
+│   │   │   ├── components        # 元件
+│   │   │   ├── directives        # 共用的 directive
+│   │   │   └── pipes             # 共用的 pipe
+│   │   ├── app.routes.ts         # 主要路由設定
 │   │   ├── app.component.html    # 根元件 html
 │   │   ├── app.component.scss    # 根元件 scss
 │   │   ├── app.component.ts      # 根元件 ts
-│   │   └── app.module.ts         # 根模組
 │   ├── assets                    # 靜態資源
 │   ├── environments              # 區分不同環境設定檔
 │   ├── styles                    # 存放 scss
-│   ├── types                     # 定義 typescript 型別
 │   ├── favicon.ico               # 網頁 favicon.ico
 │   ├── index.html                # 入口頁面
 │   ├── main.ts                   # angular 入口檔案
-│   ├── polyfills.ts              # polyfills
-├── .browserslistrc               # 瀏覽器兼容性配置
-├── .commitlintrc.json            # commit檢查配置
-├── .dockerignore                 # docker build 忽略配置
 ├── .editorconfig                 # 編碼樣式的文件格式配置
 ├── .eslintrc.js                  # eslint 配置
 ├── .gitignore                    # git 忽略配置
-├── .gitmodules                   # git submodule 配置
-├── .prettierignore               # prettier 忽略配置
 ├── .prettierrc.json              # prettier 配置
 ├── .versionrc.json               # 自動生成 CHANGELOG.md 配置
 ├── angular.json                  # angular 配置
 ├── CHANGELOG.md                  # 專案更新日誌
-├── Dockerfile                    # docker build 配置
+├── commitlint.config.js            # commit檢查配置
+├── lefthook.yml                  # 建立 husky 的工具
+├── package-lock.json             # 鎖定套件版本
 ├── package.json                  # package.json
 ├── README.md                     # 專案說明
-├── server.js                     # mock server
 ├── tsconfig.app.json             # typescript 配置
 ├── tsconfig.json                 # typescript 配置
-└── tsconfig.spec.json            # typescript 測試配置
 ```
 
 ## Npm 指令
 
 - `npm install` 安裝 json.package 所有套件
 - `npm install [package]` 安裝套件
-- `npm install [package] --dev` 安裝 dev 套件
+- `npm install [package] --save-dev` 安裝 dev 套件
 - `npm install -g [package]` 安裝在電腦全域中
 - `npm uninstall [package]` 移除專案套件
 
 ## 啟動專案
 
-1. 安裝專案所需套件(依據 package.josn)
+1. 安裝專案所需套件(依據 package.json)
    ```sh
    npm install
    ```
-2. 載入 git submodule 子專案(位於 projects/common-lib)
-   ```sh
-   npm run git_sub_update_init
-   ```
-3. 啟動開發
+2. 啟動開發
    ```sh
    npm start
    ```
 
 ## 編譯專案
 
-- development 環境
-  ```sh
-  npm run build:development
-  ```
-- production 環境
-  ```sh
-  npm run build
-  ```
+dev 環境
+
+```sh
+npm run build
+```
+
+sit 環境
+
+```sh
+npm run build:sit
+```
+
+uat 環境
+
+```sh
+npm run build:uat
+```
 
 ## 上版階段
 
@@ -137,16 +132,20 @@ npm run release:patch
 採用 https://www.conventionalcommits.org/zh-hant/ 規範
 主要有以下 type
 
-- chore: 其他瑣事
-- core: 核心
-- docs: 文件
-- feat: 功能/修改
-- fix: 修正
-- perf: 優化
-- refactor: 重構
-- revert: 恢復
-- style: 排版樣式
-- test: 單元測試
+- feat：新功能。
+- fix：修復 bug。
+- style：coding style 的調整，例如：空白、分號、空格等，不影響程式碼的內容。
+- perf：提升效能的改進。
+- build：和打包或外部依賴相關的修改，例如：npm、gulp、broccoli。
+- chore：其他，並且也不會修改原始碼或是測試，例如：storybook 的新增或變更。
+- revert：回復前一個提交的 commit。
+
+## 套件
+
+- date-fns 日期格式化
+- decimal.js 計算數字
+- lodash-es 工具庫
+- ngxs 狀態管理
 
 #### 如有牌卡請帶入牌卡編號，並且紀錄牌卡連結
 
@@ -162,7 +161,7 @@ https://tpower.atlassian.net/browse/CHUBB2-001
 
 使用的是 `prettier`, 如需調整可參考專案下 `.prettierrc.json`
 
-## 程式碼檢查
+## 程式碼規範
 
 使用的是 `eslint`, 如需調整可參考專案下 `.eslintrc.json`
 
