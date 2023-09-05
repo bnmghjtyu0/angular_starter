@@ -37,7 +37,13 @@
             "scripts": []
           },
           "configurations": {
-            "production": {
+            "uat": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.uat.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -52,7 +58,28 @@
               ],
               "outputHashing": "all"
             },
-            "development": {
+            "sit": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.sit.ts"
+                }
+              ],
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "dev": {
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
@@ -61,19 +88,22 @@
               "namedChunks": true
             }
           },
-          "defaultConfiguration": "production"
+          "defaultConfiguration": "dev"
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
-            "production": {
-              "browserTarget": "angular-starter:build:production"
+            "uat": {
+              "browserTarget": "angular-starter:build:uat"
             },
-            "development": {
-              "browserTarget": "angular-starter:build:development"
+            "sit": {
+              "browserTarget": "angular-starter:build:sit"
+            },
+            "dev": {
+              "browserTarget": "angular-starter:build:dev"
             }
           },
-          "defaultConfiguration": "development"
+          "defaultConfiguration": "dev"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -81,7 +111,6 @@
             "browserTarget": "angular-starter:build"
           }
         },
-
         "lint": {
           "builder": "@angular-eslint/builder:lint",
           "options": {

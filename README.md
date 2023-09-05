@@ -5,12 +5,13 @@
 - [Nodejs >=16](https://nodejs.org/zh-tw/)
 - [VSCode](https://code.visualstudio.com/)
   - P.S. 安裝專案下 .vscode/settings.json 所列的 extension
-- [Angular CLI 12.x](https://angular.io/cli)
+- [Angular CLI 16.x](https://angular.io/cli)
   - npm install -g @angular/cli
 
 ## 目錄架構
 
 ```sh
+├── .angular                      # angular 暫存
 ├── .husky                        # 設定 git hooks
 ├── .vscode                       # 此專案的 vscode 設定
 │   ├── extensions.json           # 專案所需的 extensions

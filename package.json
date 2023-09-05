@@ -6,6 +6,8 @@
     "start": "ng serve",
     "mock": "node ./mock/bin/www",
     "build": "ng build",
+    "build:sit": "ng build --configuration=sit",
+    "build:uat": "ng build --configuration=uat",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "prepare": "husky install",
